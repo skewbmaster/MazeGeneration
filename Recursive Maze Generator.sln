@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursive Maze Generator", "Recursive Maze Generator\Recursive Maze Generator.csproj", "{B459AE78-1BBD-4890-AF45-399D6F174FF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B459AE78-1BBD-4890-AF45-399D6F174FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B459AE78-1BBD-4890-AF45-399D6F174FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B459AE78-1BBD-4890-AF45-399D6F174FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B459AE78-1BBD-4890-AF45-399D6F174FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D78C7D0-F906-49CE-8911-568DF4F6649E}
+	EndGlobalSection
+EndGlobal
