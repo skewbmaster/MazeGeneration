@@ -7,15 +7,12 @@ namespace Recursive_Maze_Generator
 {
     class Program
     {
-        const int mazeSizeX = 21, mazeSizeY = 41;
+        public const int mazeSizeX = 21, mazeSizeY = 21;
 
-        public static List<int[]> possibleDirections = new List<int[]> { new int[] { 0, -1 },
-                                                                         new int[] { -1, 0 },
-                                                                         new int[] { 1, 0 },
-                                                                         new int[] { 0, 1 } };
+        public static int[][] possibleDirections = new int[][] { new int[] { 0, -1 }, new int[] { -1, 0 }, new int[] { 1, 0 }, new int[] { 0, 1 } };
 
         static Random rnd = new Random();
-        static bool[,] mazeArray = new bool[mazeSizeX, mazeSizeY];
+        public static bool[,] mazeArray = new bool[mazeSizeX, mazeSizeY];
 
         static void Main(string[] args)
         {
@@ -45,35 +42,40 @@ namespace Recursive_Maze_Generator
                 {
                     if ((x == 1 && y == 0) || (x == mazeSizeX - 1 && y == mazeSizeY - 2))
                     {
-                        Console.Write(" ");
+                        Console.Write("  ");
                     }
                     else
                     {
-                        Console.Write(mazeArray[x, y] == false ? "█" : " ");
+                        Console.Write(mazeArray[x, y] == false ? "██" : "  ");
                     }
                 }
                 Console.WriteLine();
             }
+
+            
         }
 
         static void recursiveSearch(int currCellX, int currCellY)
         {
-            //Console.WriteLine("{0}, {1}", currCellX, currCellY);
+            bool[] possible = GetPossible(currCellX, currCellY);
+            int[] chosenDirection;
+            int randomDirection = -1;
+            int possibleCount = possible.Count(p => p);
 
-            List<int[]> possible = GetPossible(currCellX, currCellY);
-            int[] randomDirection;
-
-            while (possible.Count > 0)
+            while (!possible.All(p => !p))
             {
-                randomDirection = possible.ElementAt(rnd.Next(possible.Count));
+                possibleCount = possible.Count(p => p);
+                randomDirection = rnd.Next(possibleCount);
+
+                chosenDirection = possibleDirections[possible.TakeWhile(p => (randomDirection -= p ? 1 : 0) > -1).Count()];
 
                 for (int i = 1; i < 3; i++)
                 {
-                    mazeArray[currCellX + i * randomDirection[0], currCellY] = true;
-                    mazeArray[currCellX, currCellY + i * randomDirection[1]] = true;
+                    mazeArray[currCellX + i * chosenDirection[0], currCellY] = true;
+                    mazeArray[currCellX, currCellY + i * chosenDirection[1]] = true;
                 }
 
-                recursiveSearch(currCellX + randomDirection[0] * 2, currCellY + randomDirection[1] * 2);
+                recursiveSearch(currCellX + chosenDirection[0] * 2, currCellY + chosenDirection[1] * 2);
 
                 possible = GetPossible(currCellX, currCellY);
             }
@@ -81,33 +83,28 @@ namespace Recursive_Maze_Generator
             return;
         }
 
-        static List<int[]> GetPossible(int CX, int CY)
+        private static bool[] GetPossible(int CX, int CY)
         {
-            List<int[]> possible = new List<int[]>(possibleDirections);
-
-            int offset = 0;
+            bool[] possible = new bool[] { true, true, true, true };
 
             if (CY - 2 < 1 || mazeArray[CX, CY - 2])
             {
-                possible.RemoveAt(0);
-                offset++;
+                possible[0] = false;
             }
 
             if (CX - 2 < 1 || mazeArray[CX - 2, CY])
             {
-                possible.RemoveAt(1 - offset);
-                offset++;
+                possible[1] = false;
             }
 
             if (CX + 2 > mazeSizeX - 1 || mazeArray[CX + 2, CY])
             {
-                possible.RemoveAt(2 - offset);
-                offset++;
+                possible[2] = false;
             }
 
             if (CY + 2 > mazeSizeY - 1 || mazeArray[CX, CY + 2])
             {
-                possible.RemoveAt(3 - offset);
+                possible[3] = false;
             }
 
             return possible;

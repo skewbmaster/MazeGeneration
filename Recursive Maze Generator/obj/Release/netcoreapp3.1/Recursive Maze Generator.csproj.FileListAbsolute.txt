@@ -6,7 +6,8 @@ H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\bin\Release\
 H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\bin\Release\netcoreapp3.1\Recursive Maze Generator.pdb
 H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.AssemblyInfoInputs.cache
 H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.AssemblyInfo.cs
-H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.csproj.CoreCompileInputs.cache
 H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.dll
 H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.pdb
 H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.genruntimeconfig.cache
+H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.csprojAssemblyReference.cache
+H:\CS\C# Projects\Recursive Maze Generator\Recursive Maze Generator\obj\Release\netcoreapp3.1\Recursive Maze Generator.csproj.CoreCompileInputs.cache
